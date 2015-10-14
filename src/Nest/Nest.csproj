@@ -379,7 +379,6 @@
     <Compile Include="Cat\CatResponse.cs" />
     <Compile Include="Cluster\ClusterStats\ClusterStatsResponse.cs" />
     <Compile Include="Cluster\PendingClusterTasks\ClusterPendingTasksResponse.cs" />
-    <Compile Include="Indices\AliasManagement\DeleteAlias\DeleteAliasResponse.cs" />
     <Compile Include="Search\FieldStats\FieldStatsResponse.cs" />
     <Compile Include="Indices\IndexManagement\GetIndex\GetIndexResponse.cs" />
     <Compile Include="Search\Explain\ExplainResponse.cs" />
@@ -395,7 +394,6 @@
     <Compile Include="Modules\Scripting\GetScript\GetScriptResponse.cs" />
     <Compile Include="Search\Percolator\MultiPercolate\MultiPercolateResponse.cs" />
     <Compile Include="Cluster\NodesHotThreads\NodesHotThreadsResponse.cs" />
-    <Compile Include="Indices\AliasManagement\PutAlias\PutAliasResponse.cs" />
     <Compile Include="Search\SearchShards\SearchShardsResponse.cs" />
     <Compile Include="Modules\SnapshotAndRestore\Snapshot\SnapshotStatus\SnapshotStatusResponse.cs" />
     <Compile Include="Indices\Monitoring\IndicesRecovery\RecoveryOrigin.cs" />

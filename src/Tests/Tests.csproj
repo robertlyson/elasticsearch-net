@@ -199,6 +199,7 @@
     <Compile Include="IndexModules\IndexSettings\Translog\TranslogSettings.cs" />
     <Compile Include="IndexModules\Similarity\SimilaritySettings.cs" />
     <Compile Include="Indices\AliasManagement\AliasExists\AliasExistsUrlTests.cs" />
+    <Compile Include="Indices\AliasManagement\AliasManagementCrudTests.cs" />
     <Compile Include="Indices\AliasManagement\Alias\AliasUrlTests.cs" />
     <Compile Include="Indices\AliasManagement\DeleteAlias\DeleteAliasUrlTests.cs" />
     <Compile Include="Indices\AliasManagement\GetAliasesUrlTests.cs\GetAliasesUrlTests.cs" />

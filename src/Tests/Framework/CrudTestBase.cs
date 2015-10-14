@@ -84,7 +84,8 @@ namespace Tests.Framework
 		}
 		protected static string RandomString() => Guid.NewGuid().ToString("N").Substring(0, 8);
 		protected int IntegrationPort { get; set; } = 9200;
-		protected virtual ConnectionSettings GetConnectionSettings(ConnectionSettings settings) => settings;
+		protected virtual ConnectionSettings GetConnectionSettings(ConnectionSettings settings) 
+			=> settings.EnableTrace().PrettyJson();
 		protected virtual IElasticClient Client => this._cluster.Client(GetConnectionSettings);
 
 		protected async Task AssertOnAllResponses<TResponse>(LazyResponses responses, Action<TResponse> assert)
@@ -142,7 +143,10 @@ namespace Tests.Framework
 		[I] protected async Task UpdateCallIsValid() => await this.AssertOnUpdate(r => r.IsValid.Should().Be(true));
 		[I] protected async Task GetAfterUpdateIsValid() => await this.AssertOnGetAfterUpdate(r => r.IsValid.Should().Be(true));
 
-		[I] protected async Task DeleteCallIsValid() => await this.AssertOnDelete(r => r.IsValid.Should().Be(true));
+		[I] protected async Task DeleteCallIsValid() => await this.AssertOnDelete(r =>
+		{
+			r.IsValid.Should().Be(true);
+		});
 		[I] protected async Task GetAfterDeleteIsValid() => await this.AssertOnGetAfterDelete(r => r.IsValid.Should().Be(false));
 	}
 }

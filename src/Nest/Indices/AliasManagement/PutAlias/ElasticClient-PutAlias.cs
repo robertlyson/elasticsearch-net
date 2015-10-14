@@ -14,40 +14,40 @@ namespace Nest
 		/// http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/indices-aliases.html#alias-adding
 		/// </summary>
 		/// <param name="putAliasRequest">A descriptor that describes the put alias request</param>
-		IPutAliasResponse PutAlias(IPutAliasRequest putAliasRequest);
+		IAcknowledgedResponse PutAlias(IPutAliasRequest putAliasRequest);
 
 		/// <inheritdoc/>
-		Task<IPutAliasResponse> PutAliasAsync(IPutAliasRequest putAliasRequest);
+		Task<IAcknowledgedResponse> PutAliasAsync(IPutAliasRequest putAliasRequest);
 
 		/// <inheritdoc/>
-		IPutAliasResponse PutAlias(Indices indices, Name alias, Func<PutAliasDescriptor, IPutAliasRequest> putAliasSelector = null); 
+		IAcknowledgedResponse PutAlias(Indices indices, Name alias, Func<PutAliasDescriptor, IPutAliasRequest> putAliasSelector = null); 
 
 		/// <inheritdoc/>
-		Task<IPutAliasResponse> PutAliasAsync(Indices indices, Name alias, Func<PutAliasDescriptor, IPutAliasRequest> putAliasSelector = null);
+		Task<IAcknowledgedResponse> PutAliasAsync(Indices indices, Name alias, Func<PutAliasDescriptor, IPutAliasRequest> putAliasSelector = null);
 	}
 
 	public partial class ElasticClient
 	{
 		/// <inheritdoc/>
-		public IPutAliasResponse PutAlias(IPutAliasRequest putAliasRequest) => 
-			this.Dispatcher.Dispatch<IPutAliasRequest, PutAliasRequestParameters, PutAliasResponse>(
+		public IAcknowledgedResponse PutAlias(IPutAliasRequest putAliasRequest) => 
+			this.Dispatcher.Dispatch<IPutAliasRequest, PutAliasRequestParameters, AcknowledgedResponse>(
 				putAliasRequest,
-				this.LowLevelDispatch.IndicesPutAliasDispatch<PutAliasResponse>
+				this.LowLevelDispatch.IndicesPutAliasDispatch<AcknowledgedResponse>
 			);
 
 		/// <inheritdoc/>
-		public Task<IPutAliasResponse> PutAliasAsync(IPutAliasRequest putAliasRequest) => 
-			this.Dispatcher.DispatchAsync<IPutAliasRequest, PutAliasRequestParameters, PutAliasResponse, IPutAliasResponse>(
+		public Task<IAcknowledgedResponse> PutAliasAsync(IPutAliasRequest putAliasRequest) => 
+			this.Dispatcher.DispatchAsync<IPutAliasRequest, PutAliasRequestParameters, AcknowledgedResponse, IAcknowledgedResponse>(
 				putAliasRequest,
-				this.LowLevelDispatch.IndicesPutAliasDispatchAsync<PutAliasResponse>
+				this.LowLevelDispatch.IndicesPutAliasDispatchAsync<AcknowledgedResponse>
 			);
 
 		/// <inheritdoc/>
-		public IPutAliasResponse PutAlias(Indices indices, Name alias, Func<PutAliasDescriptor, IPutAliasRequest> putAliasSelector = null) =>
+		public IAcknowledgedResponse PutAlias(Indices indices, Name alias, Func<PutAliasDescriptor, IPutAliasRequest> putAliasSelector = null) =>
 			this.PutAlias(putAliasSelector.InvokeOrDefault(new PutAliasDescriptor(indices, alias)));
 
 		/// <inheritdoc/>
-		public Task<IPutAliasResponse> PutAliasAsync(Indices indices, Name alias, Func<PutAliasDescriptor, IPutAliasRequest> putAliasSelector = null) =>
+		public Task<IAcknowledgedResponse> PutAliasAsync(Indices indices, Name alias, Func<PutAliasDescriptor, IPutAliasRequest> putAliasSelector = null) =>
 			this.PutAliasAsync(putAliasSelector.InvokeOrDefault(new PutAliasDescriptor(indices, alias)));
 	}
 }
