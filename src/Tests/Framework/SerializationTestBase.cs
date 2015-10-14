@@ -8,7 +8,6 @@ using DiffPlex.DiffBuilder.Model;
 using FluentAssertions;
 using Nest;
 using Newtonsoft.Json.Linq;
-using Ploeh.AutoFixture;
 using Elasticsearch.Net.Serialization;
 using Tests.Framework;
 using System.Text.RegularExpressions;
@@ -34,6 +33,7 @@ namespace Tests.Framework
 			if (string.IsNullOrEmpty(this._expectedJsonString))
 				throw new ArgumentNullException(nameof(this._expectedJsonString));
 		}
+
 
 		protected DateTime FixedDate => new DateTime(2015, 06, 06, 12, 01, 02, 123);
 
@@ -73,6 +73,8 @@ namespace Tests.Framework
 
 		protected T AssertSerializesAndRoundTrips<T>(T o)
 		{
+			if (string.IsNullOrEmpty(this._expectedJsonString)) return default(T);
+
 			int iteration = 0;
 			//first serialize to string and assert it looks like this.ExpectedJson
 			string serialized;

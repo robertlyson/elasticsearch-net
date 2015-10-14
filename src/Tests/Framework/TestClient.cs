@@ -15,15 +15,16 @@ namespace Tests.Framework
 {
 	public static class TestClient
 	{
-		private static bool _integrationOverride = true;
+		private static bool _integrationOverride = false;
 		private static string _manualOverrideVersion = "2.0.0-rc1";
 
-		public static string ElasticsearchVersion => 
-			Environment.GetEnvironmentVariable("NEST_INTEGRATION_VERSION") ?? (_integrationOverride ? _manualOverrideVersion : null);
+		private static string ElasticVersionInEnvironment = Environment.GetEnvironmentVariable("NEST_INTEGRATION_VERSION");
+
+		public static string ElasticsearchVersion => ElasticVersionInEnvironment ?? (_integrationOverride ? _manualOverrideVersion : null);
 
 		public static bool RunIntegrationTests => _integrationOverride || !string.IsNullOrEmpty(ElasticsearchVersion);
 
-		public static bool RunningFiddler => Process.GetProcessesByName("fiddler").Any();
+		public static bool RunningFiddler = Process.GetProcessesByName("fiddler").Any();
 
 		public static ConnectionSettings CreateSettings(Func<ConnectionSettings, ConnectionSettings> modifySettings = null, int port = 9200)
 		{
