@@ -70,7 +70,8 @@ namespace Tests.Indices.AliasManagement
 		private GetAliasRequest ReadInitializer(string index) =>
 			new GetAliasRequest(index, _aliasName);
 
-		private IGetAliasRequest ReadFluent(string index, GetAliasDescriptor d) => d.Index(index);
+		private IGetAliasRequest ReadFluent(string index, GetAliasDescriptor d) => 
+			d.Index(index).Alias(_aliasName);
 
 		protected override LazyResponses Update() => Calls<PutAliasDescriptor, PutAliasRequest, IPutAliasRequest, IAcknowledgedResponse>(
 			UpdateInitializer,
@@ -109,11 +110,7 @@ namespace Tests.Indices.AliasManagement
 		protected override LazyResponses Delete() => Calls<DeleteAliasDescriptor, DeleteAliasRequest, IDeleteAliasRequest, IAcknowledgedResponse>(
 			DeleteInitializer,
 			DeleteFluent,
-			fluent: (s, c, f) =>
-			{
-				var response = c.DeleteAlias(s, _updatedAliasName, f);
-				return response;
-			},
+			fluent: (s, c, f) => c.DeleteAlias(s, _updatedAliasName, f),
 			fluentAsync: (s, c, f) => c.DeleteAliasAsync(s, _updatedAliasName, f),
 			request: (s, c, r) => c.DeleteAlias(r),
 			requestAsync: (s, c, r) => c.DeleteAliasAsync(r)
