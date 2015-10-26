@@ -114,32 +114,55 @@
     <Compile Include="Cluster\ClusterHealth\ClusterHealthUrlTests.cs" />
     <Compile Include="Cluster\ClusterReroute\ClusterRerouteApiTests.cs" />
     <Compile Include="Cluster\ClusterReroute\ClusterRerouteUrlTests.cs" />
-    <Compile Include="Cluster\ClusterSettings\ClusterGetSettings\ClusterGetUrlTests.cs" />
+    <Compile Include="Cluster\ClusterSettings\ClusterGetSettings\ClusterGetSettingsApiTests.cs" />
+    <Compile Include="Cluster\ClusterSettings\ClusterGetSettings\ClusterGetSettingsUrlTests.cs" />
+    <Compile Include="Cluster\ClusterSettings\ClusterPutSettings\ClusterPutSettingsApiTests.cs" />
     <Compile Include="Cluster\ClusterSettings\ClusterPutSettings\ClusterPutUrlTests.cs" />
+    <Compile Include="Cluster\ClusterStats\ClusterStatsApiTests.cs" />
     <Compile Include="Cluster\ClusterState\ClusterStateUrlTests.cs" />
+    <Compile Include="Cluster\ClusterState\ClusterStatsApiTests.cs" />
     <Compile Include="Cluster\ClusterStats\ClusterStatsUrlTests.cs" />
+    <Compile Include="Cluster\NodesHotThreads\NodesHotThreadsApiTests.cs" />
     <Compile Include="Cluster\NodesHotThreads\NodesHotThreadsUrlTests.cs" />
+    <Compile Include="Cluster\NodesInfo\NodesInfoApiTests.cs" />
     <Compile Include="Cluster\NodesInfo\NodesInfoUrlTests.cs" />
+    <Compile Include="Cluster\NodesStats\NodesStatsApiTests.cs" />
     <Compile Include="Cluster\NodesStats\NodesStatsUrlTests.cs" />
-    <Compile Include="Cluster\PendingClusterTasks\PendingClusterTasksUrlTests.cs" />
+    <Compile Include="Cluster\ClusterPendingTasks\ClusterPendingTasksApiTests.cs" />
+    <Compile Include="Cluster\ClusterPendingTasks\ClusterPendingTasksUrlTests.cs" />
+    <Compile Include="Cluster\Ping\PingApiTests.cs" />
     <Compile Include="Cluster\Ping\PingUrlTests.cs" />
+    <Compile Include="Cluster\RootNodeInfo\RootNodeInfoApiTests.cs" />
     <Compile Include="Cluster\RootNodeInfo\RootNodeInfoUrlTests.cs" />
     <Compile Include="CodeStandards\Descriptors.doc.cs" />
     <Compile Include="CodeStandards\ElasticClient.doc.cs" />
     <Compile Include="CodeStandards\NamingConventions.doc.cs" />
+    <Compile Include="Document\Multiple\Bulk\BulkInvalidApiTests.cs" />
     <Compile Include="Document\Multiple\Bulk\BulkUrlTests.cs" />
+    <Compile Include="Document\Multiple\Bulk\BulkApiTests.cs" />
     <Compile Include="Document\Multiple\DeleteByQuery\DeleteByQueryUrlTests.cs" />
+    <Compile Include="Document\Multiple\DeleteByQuery\DeleteByQueryApiTests.cs" />
+    <Compile Include="Document\Multiple\MultiGet\MultiGetApiTests.cs" />
     <Compile Include="Document\Multiple\MultiGet\MultiGetUrlTests.cs" />
+    <Compile Include="Document\Multiple\MultiTermVectors\MultiTermVectorsApiTests.cs" />
     <Compile Include="Document\Multiple\MultiTermVectors\MultiTermVectorsUrlTests.cs" />
-    <Compile Include="Document\Single\Exists\ExistsUrlTests.cs" />
+    <Compile Include="Document\Single\Delete\DeleteApiTests.cs" />
+    <Compile Include="Document\Single\Exists\DocumentExistsApiTests.cs" />
+    <Compile Include="Document\Single\Exists\DocumentExistsUrlTests.cs" />
     <Compile Include="Document\Single\Delete\DeleteUrlTests.cs" />
+    <Compile Include="Document\Single\Get\GetApiTests.cs" />
     <Compile Include="Document\Single\Get\GetUrlTests.cs" />
     <Compile Include="Document\Single\Index\IndexUrlTests.cs" />
     <Compile Include="Document\Single\Index\IndexApiTests.cs" />
+    <Compile Include="Document\Single\Source\SourceApiTests.cs" />
+    <Compile Include="Document\Single\TermVectors\TermVectorsApiTests.cs" />
     <Compile Include="Document\Single\TermVectors\TermVectorsUrlTests.cs" />
+    <Compile Include="Document\Single\Update\UpdateApiTests.cs" />
     <Compile Include="Document\Single\Update\UpdateUrlTests.cs" />
+    <Compile Include="Framework\ApiTestBase.cs" />
+    <Compile Include="Framework\Configuration\LocalConfiguration.cs" />
     <Compile Include="Framework\CrudTestBase.cs" />
-    <Compile Include="Framework\Integration\ObservableProcess.cs" />
+    <Compile Include="Framework\Integration\Process\ObservableProcess.cs" />
     <Compile Include="Framework\MockResponses\SniffingResponse.cs" />
     <Compile Include="Framework\UrlTests.cs" />
     <Compile Include="Framework\SimpleIntegration.cs" />
@@ -149,10 +172,10 @@
     <Compile Include="Framework\Extensions\DiffExtensions.cs" />
     <Compile Include="Framework\Extensions\Numeric.cs" />
     <Compile Include="Framework\Integration\EndpointUsage.cs" />
-    <Compile Include="Framework\Integration\ClusterBase.cs" />
-    <Compile Include="Framework\Integration\IIntegrationCluster.cs" />
+    <Compile Include="Framework\Integration\Clusters\ClusterBase.cs" />
+    <Compile Include="Framework\Integration\Clusters\IIntegrationCluster.cs" />
     <Compile Include="Framework\Integration\IntegrationContext.cs" />
-    <Compile Include="Framework\Integration\IndexingCluster.cs" />
+    <Compile Include="Framework\Integration\Clusters\IndexingCluster.cs" />
     <Compile Include="Framework\Providers\TestableDateTimeProvider.cs" />
     <Compile Include="Framework\VirtualClustering\Cluster.cs" />
     <Compile Include="Framework\VirtualClustering\FixedPipelineFactory.cs" />
@@ -185,88 +208,158 @@
     <Compile Include="IndexModules\IndexSettings\SlowLog\SlowLogSettings.cs" />
     <Compile Include="IndexModules\IndexSettings\Translog\TranslogSettings.cs" />
     <Compile Include="IndexModules\Similarity\SimilaritySettings.cs" />
+    <Compile Include="Indices\AliasManagement\AliasExists\AliasExistsApiTests.cs" />
     <Compile Include="Indices\AliasManagement\AliasExists\AliasExistsUrlTests.cs" />
     <Compile Include="Indices\AliasManagement\AliasManagementCrudTests.cs" />
     <Compile Include="Indices\AliasManagement\Alias\AliasUrlTests.cs" />
+    <Compile Include="Indices\AliasManagement\Alias\AliasApiTests.cs" />
+    <Compile Include="Indices\AliasManagement\DeleteAlias\AliasDeleteApiTests.cs" />
     <Compile Include="Indices\AliasManagement\DeleteAlias\DeleteAliasUrlTests.cs" />
-    <Compile Include="Indices\AliasManagement\GetAliasesUrlTests.cs\GetAliasesUrlTests.cs" />
+    <Compile Include="Indices\AliasManagement\GetAliases\GetAliasesApiTests.cs" />
+    <Compile Include="Indices\AliasManagement\GetAliases\GetAliasesUrlTests.cs" />
+    <Compile Include="Indices\AliasManagement\GetAlias\GetAliasApiTests.cs" />
     <Compile Include="Indices\AliasManagement\GetAlias\GetAliasUrlTests.cs" />
-    <Compile Include="Indices\AliasManagement\PutAliasUrlTests\PutAliasUrlTests.cs" />
+    <Compile Include="Indices\AliasManagement\PutAlias\PutAliasApiTests.cs" />
+    <Compile Include="Indices\AliasManagement\PutAlias\PutAliasUrlTests.cs" />
     <Compile Include="Indices\Analyze\AnalyzeUrlTests.cs" />
+    <Compile Include="Indices\Analyze\AnalyzeApiTests.cs" />
     <Compile Include="Indices\IndexManagement\CreateIndex\CreateIndexApiTests.cs" />
     <Compile Include="Indices\IndexManagement\CreateIndex\CreateIndexUrlTests.cs" />
+    <Compile Include="Indices\IndexManagement\DeleteIndex\DeleteIndexApiTests.cs" />
     <Compile Include="Indices\IndexManagement\DeleteIndex\DeleteIndexUrlTests.cs" />
+    <Compile Include="Indices\IndexManagement\GetIndex\GetIndexApiTests.cs" />
     <Compile Include="Indices\IndexManagement\GetIndex\GetIndexUrlTests.cs" />
+    <Compile Include="Indices\IndexManagement\IndicesExists\IndexExistsApiTests.cs" />
     <Compile Include="Indices\IndexManagement\IndicesExists\IndexExistsUrlTests.cs" />
     <Compile Include="Indices\IndexManagement\OpenCloseIndex\CloseIndex\CloseIndexUrlTests.cs" />
+    <Compile Include="Indices\IndexManagement\OpenCloseIndex\CloseIndex\CloseIndexApiTests.cs" />
+    <Compile Include="Indices\IndexManagement\OpenCloseIndex\OpenIndex\OpenIndexApiTests.cs" />
     <Compile Include="Indices\IndexManagement\OpenCloseIndex\OpenIndex\OpenIndexUrlTests.cs" />
-    <Compile Include="Indices\IndexManagement\TypesExists\TypesExistsUrlTests.cs" />
+    <Compile Include="Indices\IndexManagement\TypesExists\TypeExistsApiTests.cs" />
+    <Compile Include="Indices\IndexManagement\TypesExists\TypeExistsUrlTests.cs" />
+    <Compile Include="Indices\IndexSettings\GetIndexSettings\GetIndexSettingsApiTests.cs" />
     <Compile Include="Indices\IndexSettings\GetIndexSettings\GetIndexSettingsUrlTests.cs" />
+    <Compile Include="Indices\IndexSettings\IndexTemplates\DeleteIndexTemplate\DeleteIndexTemplateApiTests.cs" />
+    <Compile Include="Indices\IndexSettings\IndexTemplates\GetIndexTemplate\GetIndexTemplateApiTests.cs" />
     <Compile Include="Indices\IndexSettings\IndexTemplates\GetIndexTemplate\GetIndexTemplateUrlTests.cs" />
     <Compile Include="Indices\IndexSettings\IndexTemplates\DeleteIndexTemplate\DeleteIndexTemplateUrlTests.cs" />
+    <Compile Include="Indices\IndexSettings\IndexTemplates\IndexTemplateExists\IndexTemplateExistsApiTests.cs" />
     <Compile Include="Indices\IndexSettings\IndexTemplates\IndexTemplateExists\IndexTemplateExistsUrlTests.cs" />
+    <Compile Include="Indices\IndexSettings\IndexTemplates\PutIndexTemplate\PutIndexTemplateApiTests.cs" />
     <Compile Include="Indices\IndexSettings\IndexTemplates\PutIndexTemplate\PutIndexTemplateUrlTests.cs" />
-    <Compile Include="Indices\IndexSettings\UpdateIndicesSettings\UpdateIndicesSettingsUrlTests.cs" />
+    <Compile Include="Indices\IndexSettings\UpdateIndicesSettings\UpdateIndexSettingsApiTests.cs" />
+    <Compile Include="Indices\IndexSettings\UpdateIndicesSettings\UpdateIndexSettingsUrlTests.cs" />
     <Compile Include="Indices\MappingManagement\GetFieldMapping\GetFieldMappingUrlTests.cs" />
+    <Compile Include="Indices\MappingManagement\GetFieldMapping\GetFieldMappingApiTests.cs" />
     <Compile Include="Indices\MappingManagement\GetMapping\GetMappingUrlTests.cs" />
+    <Compile Include="Indices\MappingManagement\GetMapping\GetMappingApiTest.cs" />
     <Compile Include="Indices\MappingManagement\PutMapping\PutMappingApiTest.cs" />
     <Compile Include="Indices\MappingManagement\PutMapping\PutMappingUrlTests.cs" />
+    <Compile Include="Indices\Monitoring\IndicesRecovery\RecoveryStatusApiTests.cs" />
     <Compile Include="Indices\Monitoring\IndicesRecovery\RecoveryStatusUrlTests.cs" />
+    <Compile Include="Indices\Monitoring\IndicesSegments\SegmentsApiTests.cs" />
     <Compile Include="Indices\Monitoring\IndicesSegments\SegmentsUrlTests.cs" />
     <Compile Include="Indices\Monitoring\IndicesStats\IndicesStatsUrlTests.cs" />
+    <Compile Include="Indices\Monitoring\IndicesStats\IndicesStatsApiTests.cs" />
     <Compile Include="Indices\StatusManagement\ClearCache\ClearCacheUrlTests.cs" />
+    <Compile Include="Indices\StatusManagement\ClearCache\ClearCacheApiTests.cs" />
+    <Compile Include="Indices\StatusManagement\Flush\FlushApiTests.cs" />
     <Compile Include="Indices\StatusManagement\Flush\FlushUrlTests.cs" />
+    <Compile Include="Indices\StatusManagement\Optimize\OptimizeApiTests.cs" />
     <Compile Include="Indices\StatusManagement\Optimize\OptimizeUrlTests.cs" />
+    <Compile Include="Indices\StatusManagement\Refresh\RefreshApiTests.cs" />
     <Compile Include="Indices\StatusManagement\Refresh\RefreshUrlTests.cs" />
+    <Compile Include="Indices\StatusManagement\SyncedFlush\SyncedFushApiTests.cs" />
     <Compile Include="Indices\StatusManagement\SyncedFlush\SyncedFlushUrlTests.cs" />
+    <Compile Include="Indices\StatusManagement\Upgrade\UpgradeApiTests.cs" />
     <Compile Include="Indices\StatusManagement\Upgrade\UpgradeUrlTests.cs" />
     <Compile Include="Indices\Warmers\DeleteWarmer\DeleteWarmerUrlTests.cs" />
+    <Compile Include="Indices\Warmers\DeleteWarmer\DeleteWarmerApiTests.cs" />
+    <Compile Include="Indices\Warmers\GetWarmer\GetWarmerApiTests.cs" />
     <Compile Include="Indices\Warmers\GetWarmer\GetWarmerUrlTests.cs" />
+    <Compile Include="Indices\Warmers\PutWarmer\PutWarmerApiTests.cs" />
     <Compile Include="Indices\Warmers\PutWarmer\PutWarmerUrlTests.cs" />
     <Compile Include="Mapping\Types\String.cs" />
     <Compile Include="Modules\Scripting\DeleteScript\DeleteScriptUrlTests.cs" />
+    <Compile Include="Modules\Scripting\DeleteScript\DeleteScriptApiTests.cs" />
+    <Compile Include="Modules\Scripting\GetScript\GetScriptApiTests.cs" />
     <Compile Include="Modules\Scripting\GetScript\GetScriptUrlTests.cs" />
+    <Compile Include="Modules\Scripting\PutScript\PutScriptApiTests.cs" />
     <Compile Include="Modules\Scripting\PutScript\PutScriptUrlTests.cs" />
     <Compile Include="Modules\Scripting\ScriptingCrudTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Repositories\CreateRepository\CreateRepositoryUrlTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Repositories\CreateRepository\CreateRepositoryApiTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Repositories\DeleteRepository\DeleteRepositoryApiTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Repositories\DeleteRepository\DeleteRepositoryUrlTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Repositories\GetRepository\GetRepositoryApiTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Repositories\GetRepository\GetRepositoryUrlTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Repositories\VerifyRepository\VerifyRepositoryApiTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Repositories\VerifyRepository\VerifyRepositoryUrlTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Restore\RestoreUrlTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Restore\RestoreApiTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Snapshot\DeleteSnapshot\DeleteSnapshotApiTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Snapshot\DeleteSnapshot\DeleteSnapshotUrlTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Snapshot\GetSnapshot\GetSnapshotApiTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Snapshot\GetSnapshot\GetSnapshotUrlTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Snapshot\SnapshotStatus\SnapshotStatusApiTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Snapshot\SnapshotStatus\SnapshotStatusUrlTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Snapshot\Snapshot\SnapshotApiTests.cs" />
+    <Compile Include="Modules\SnapshotAndRestore\Snapshot\Snapshot\SnapshotUrlTests.cs" />
     <Compile Include="Search\Count\CountUrlTests.cs" />
+    <Compile Include="Search\Count\CountApiTests.cs" />
     <Compile Include="Search\Explain\ExplainUrlTests.cs" />
+    <Compile Include="Search\Explain\ExplainApiTests.cs" />
     <Compile Include="Search\FieldStats\FieldStatsUrlTests.cs" />
+    <Compile Include="Search\FieldStats\FieldStatsApiTests.cs" />
+    <Compile Include="Search\MultiSearch\MultiSearchApiTests.cs" />
     <Compile Include="Search\MultiSearch\MultiSearchUrlTests.cs" />
     <Compile Include="Search\Percolator\MultiPercolate\MultiPercolateUrlTests.cs" />
+    <Compile Include="Search\Percolator\MultiPercolate\MultiPercolateApiTests.cs" />
     <Compile Include="Search\Percolator\PercolateCount\PercolateCountUrlTests.cs" />
+    <Compile Include="Search\Percolator\PercolateCount\PercolateCountApiTests.cs" />
+    <Compile Include="Search\Percolator\Percolate\PercolateApiTests.cs" />
     <Compile Include="Search\Percolator\Percolate\PercolateUrlTests.cs" />
     <Compile Include="Search\Percolator\RegisterPercolator\RegisterPercolatorUrlTests.cs" />
+    <Compile Include="Search\Percolator\RegisterPercolator\RegisterPercolatorApiTests.cs" />
+    <Compile Include="Search\Percolator\UnregisterPercolator\UnregisterPercolatorApiTests.cs" />
     <Compile Include="Search\Percolator\UnregisterPercolator\UnregisterPercolatorUrlTests.cs" />
     <Compile Include="Search\Scroll\ClearScroll\ClearScrollUrlTests.cs" />
+    <Compile Include="Search\Scroll\ClearScroll\ClearScrollApiTests.cs" />
     <Compile Include="Search\Scroll\Scroll\ScrollUrlTests.cs" />
+    <Compile Include="Search\Scroll\Scroll\ScrollApiTests.cs" />
     <Compile Include="Search\SearchExists\SearchExistsUrlTests.cs" />
+    <Compile Include="Search\SearchExists\SearchExistsApiTests.cs" />
+    <Compile Include="Search\SearchShards\SearchShardsApiTests.cs" />
     <Compile Include="Search\SearchShards\SearchShardsUrlTests.cs" />
     <Compile Include="Search\SearchTemplate\DeleteSearchTemplate\DeleteSearchTemplateUrlTests.cs" />
+    <Compile Include="Search\SearchTemplate\DeleteSearchTemplate\DeleteSearchTemplateApiTests.cs" />
     <Compile Include="Search\SearchTemplate\GetSearchTemplate\GetSearchTemplateUrlTests.cs" />
+    <Compile Include="Search\SearchTemplate\GetSearchTemplate\GetSearchTemplateApiTests.cs" />
     <Compile Include="Search\SearchTemplate\PutSearchTemplate\PutSearchTemplateUrlTests.cs" />
+    <Compile Include="Search\SearchTemplate\PutSearchTemplate\PutSearchTemplateApiTests.cs" />
     <Compile Include="Search\SearchTemplate\SearchTemplateCrudTests.cs" />
+    <Compile Include="Search\Search\SearchApiTests.cs" />
     <Compile Include="Search\Search\SearchUrlTests.cs" />
-    <Compile Include="Search\Request\Fields.cs" />
-    <Compile Include="Search\Request\FielddataFields.cs" />
-    <Compile Include="Search\Request\Highlighting.cs" />
-    <Compile Include="Search\Request\IndexBoost.cs" />
-    <Compile Include="Search\Request\MinScore.cs" />
-    <Compile Include="Search\Request\PostFilter.cs" />
-    <Compile Include="Search\Request\Explain.cs" />
-    <Compile Include="Search\Request\Query.cs" />
-    <Compile Include="Search\Request\Sort.cs" />
-    <Compile Include="Search\Request\TermFilter.cs" />
+    <Compile Include="Search\Request\FieldsUsageTests.cs" />
+    <Compile Include="Search\Request\FielddataFieldsUsageTests.cs" />
+    <Compile Include="Search\Request\HighlightingUsageTests.cs" />
+    <Compile Include="Search\Request\IndexBoostUsageTests.cs" />
+    <Compile Include="Search\Request\MinScoreUsageTests.cs" />
+    <Compile Include="Search\Request\PostFilterUsageTests.cs" />
+    <Compile Include="Search\Request\ExplainUsageTests.cs" />
+    <Compile Include="Search\Request\QueryUsageTests.cs" />
+    <Compile Include="Search\Request\SortUsageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Search\Request\FromAndSize.cs" />
-    <Compile Include="Search\SearchUsageBase.cs" />
+    <Compile Include="Search\Request\FromAndSizeUsageTests.cs" />
+    <Compile Include="Search\SearchUsageTestBase.cs" />
     <Compile Include="Framework\AsyncLazy.cs" />
-    <Compile Include="Framework\ApiTestBase.cs" />
+    <Compile Include="Framework\ApiIntegrationTestBase.cs" />
     <Compile Include="Framework\UsageTestBase.cs" />
-    <Compile Include="Framework\Integration\Seeder.cs" />
+    <Compile Include="Framework\Integration\Bootstrappers\Seeder.cs" />
     <Compile Include="Framework\MockData\Project.cs" />
     <Compile Include="Framework\TestAttributes.cs" />
-    <Compile Include="Framework\Integration\ElasticsearchNode.cs" />
-    <Compile Include="Framework\Integration\ReadOnlyCluster.cs" />
+    <Compile Include="Framework\Integration\Process\ElasticsearchNode.cs" />
+    <Compile Include="Framework\Integration\Clusters\ReadOnlyCluster.cs" />
     <Compile Include="Framework\SerializationTestBase.cs" />
     <Compile Include="Framework\TestClient.cs" />
     <Compile Include="Search\Validate\ValidateApiTests.cs" />
@@ -292,7 +385,6 @@
   <ItemGroup>
     <Folder Include="Aggregations\Metric\" />
     <Folder Include="Aggregations\Pipeline\" />
-    <Folder Include="Document\Single\Source\" />
     <Folder Include="Migration\" />
     <Folder Include="Plugins\Analysis\Phonetic\" />
     <Folder Include="QueryDsl\" />
@@ -300,6 +392,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientConcepts\ConnectionPooling\BuildingBlocks\timeoutplot.png" />
+    <None Include="tests.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -884,7 +977,7 @@
         </Reference>
       </ItemGroup>
     </When>
-    <When Condition="($(TargetFrameworkIdentifier) == 'WindowsPhoneApp') Or ($(TargetFrameworkIdentifier) == '.NETCore') Or ($(TargetFrameworkIdentifier) == 'WindowsPhone' And ($(TargetFrameworkVersion) == 'v8.0' Or $(TargetFrameworkVersion) == 'v8.1')) Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch') Or ($(TargetFrameworkIdentifier) == 'Xamarin.iOS') Or ($(TargetFrameworkIdentifier) == 'Xamarin.Mac') Or ($(TargetFrameworkProfile) == 'Profile7') Or ($(TargetFrameworkProfile) == 'Profile31') Or ($(TargetFrameworkProfile) == 'Profile32') Or ($(TargetFrameworkProfile) == 'Profile44') Or ($(TargetFrameworkProfile) == 'Profile49') Or ($(TargetFrameworkProfile) == 'Profile78') Or ($(TargetFrameworkProfile) == 'Profile84') Or ($(TargetFrameworkProfile) == 'Profile111') Or ($(TargetFrameworkProfile) == 'Profile151') Or ($(TargetFrameworkProfile) == 'Profile157') Or ($(TargetFrameworkProfile) == 'Profile259')">
+    <When Condition="($(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v4.5') Or ($(TargetFrameworkIdentifier) == 'WindowsPhone' And $(TargetFrameworkVersion) == 'v8.0') Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch') Or ($(TargetFrameworkIdentifier) == 'Xamarin.iOS') Or ($(TargetFrameworkProfile) == 'Profile7') Or ($(TargetFrameworkProfile) == 'Profile31') Or ($(TargetFrameworkProfile) == 'Profile32') Or ($(TargetFrameworkProfile) == 'Profile44') Or ($(TargetFrameworkProfile) == 'Profile49') Or ($(TargetFrameworkProfile) == 'Profile78') Or ($(TargetFrameworkProfile) == 'Profile84') Or ($(TargetFrameworkProfile) == 'Profile111') Or ($(TargetFrameworkProfile) == 'Profile151') Or ($(TargetFrameworkProfile) == 'Profile157') Or ($(TargetFrameworkProfile) == 'Profile259')">
       <ItemGroup>
         <Reference Include="xunit.abstractions">
           <HintPath>..\..\packages\xunit.abstractions\lib\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.abstractions.dll</HintPath>
@@ -924,7 +1017,7 @@
   </Choose>
   <Import Project="..\..\packages\xunit.core\build\$(__paket__xunit_core_props).props" Condition="Exists('..\..\packages\xunit.core\build\$(__paket__xunit_core_props).props')" Label="Paket" />
   <Choose>
-    <When Condition="($(TargetFrameworkIdentifier) == 'WindowsPhoneApp') Or ($(TargetFrameworkIdentifier) == '.NETCore') Or ($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6')) Or ($(TargetFrameworkIdentifier) == 'WindowsPhone' And ($(TargetFrameworkVersion) == 'v8.0' Or $(TargetFrameworkVersion) == 'v8.1')) Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch') Or ($(TargetFrameworkIdentifier) == 'Xamarin.iOS') Or ($(TargetFrameworkIdentifier) == 'Xamarin.Mac') Or ($(TargetFrameworkProfile) == 'Profile7') Or ($(TargetFrameworkProfile) == 'Profile31') Or ($(TargetFrameworkProfile) == 'Profile32') Or ($(TargetFrameworkProfile) == 'Profile44') Or ($(TargetFrameworkProfile) == 'Profile49') Or ($(TargetFrameworkProfile) == 'Profile78') Or ($(TargetFrameworkProfile) == 'Profile84') Or ($(TargetFrameworkProfile) == 'Profile111') Or ($(TargetFrameworkProfile) == 'Profile151') Or ($(TargetFrameworkProfile) == 'Profile157') Or ($(TargetFrameworkProfile) == 'Profile259')">
+    <When Condition="($(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6')) Or ($(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v4.5') Or ($(TargetFrameworkIdentifier) == 'WindowsPhone' And $(TargetFrameworkVersion) == 'v8.0') Or ($(TargetFrameworkIdentifier) == 'MonoAndroid') Or ($(TargetFrameworkIdentifier) == 'MonoTouch') Or ($(TargetFrameworkIdentifier) == 'Xamarin.iOS') Or ($(TargetFrameworkProfile) == 'Profile7') Or ($(TargetFrameworkProfile) == 'Profile31') Or ($(TargetFrameworkProfile) == 'Profile32') Or ($(TargetFrameworkProfile) == 'Profile44') Or ($(TargetFrameworkProfile) == 'Profile49') Or ($(TargetFrameworkProfile) == 'Profile78') Or ($(TargetFrameworkProfile) == 'Profile84') Or ($(TargetFrameworkProfile) == 'Profile111') Or ($(TargetFrameworkProfile) == 'Profile151') Or ($(TargetFrameworkProfile) == 'Profile157') Or ($(TargetFrameworkProfile) == 'Profile259')">
       <ItemGroup>
         <Reference Include="xunit.core">
           <HintPath>..\..\packages\xunit.extensibility.core\lib\portable-net45+win8+wp8+wpa81\xunit.core.dll</HintPath>
@@ -935,7 +1028,7 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETCore' And $(TargetFrameworkVersion) == 'v4.5'">
       <ItemGroup>
         <Reference Include="xunit.execution.dotnet">
           <HintPath>..\..\packages\xunit.extensibility.execution\lib\win8\xunit.execution.dotnet.dll</HintPath>
@@ -971,19 +1064,10 @@
         </Reference>
       </ItemGroup>
     </When>
-    <When Condition="$(TargetFrameworkIdentifier) == 'WindowsPhone' And ($(TargetFrameworkVersion) == 'v8.0' Or $(TargetFrameworkVersion) == 'v8.1')">
+    <When Condition="$(TargetFrameworkIdentifier) == 'WindowsPhone' And $(TargetFrameworkVersion) == 'v8.0'">
       <ItemGroup>
         <Reference Include="xunit.execution.dotnet">
           <HintPath>..\..\packages\xunit.extensibility.execution\lib\wp8\xunit.execution.dotnet.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <When Condition="$(TargetFrameworkIdentifier) == 'WindowsPhoneApp'">
-      <ItemGroup>
-        <Reference Include="xunit.execution.dotnet">
-          <HintPath>..\..\packages\xunit.extensibility.execution\lib\wpa81\xunit.execution.dotnet.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -998,7 +1082,7 @@
         </Reference>
       </ItemGroup>
     </When>
-    <When Condition="($(TargetFrameworkIdentifier) == 'Xamarin.Mac') Or ($(TargetFrameworkProfile) == 'Profile7') Or ($(TargetFrameworkProfile) == 'Profile31') Or ($(TargetFrameworkProfile) == 'Profile32') Or ($(TargetFrameworkProfile) == 'Profile44') Or ($(TargetFrameworkProfile) == 'Profile49') Or ($(TargetFrameworkProfile) == 'Profile78') Or ($(TargetFrameworkProfile) == 'Profile84') Or ($(TargetFrameworkProfile) == 'Profile111') Or ($(TargetFrameworkProfile) == 'Profile151') Or ($(TargetFrameworkProfile) == 'Profile157') Or ($(TargetFrameworkProfile) == 'Profile259')">
+    <When Condition="($(TargetFrameworkProfile) == 'Profile7') Or ($(TargetFrameworkProfile) == 'Profile31') Or ($(TargetFrameworkProfile) == 'Profile32') Or ($(TargetFrameworkProfile) == 'Profile44') Or ($(TargetFrameworkProfile) == 'Profile49') Or ($(TargetFrameworkProfile) == 'Profile78') Or ($(TargetFrameworkProfile) == 'Profile84') Or ($(TargetFrameworkProfile) == 'Profile111') Or ($(TargetFrameworkProfile) == 'Profile151') Or ($(TargetFrameworkProfile) == 'Profile157') Or ($(TargetFrameworkProfile) == 'Profile259')">
       <ItemGroup>
         <Reference Include="xunit.execution.dotnet">
           <HintPath>..\..\packages\xunit.extensibility.execution\lib\portable-net45+win8+wp8+wpa81\xunit.execution.dotnet.dll</HintPath>

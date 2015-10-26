@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
+using Elasticsearch.Net;
 using FluentAssertions;
 using Nest;
 using Tests.Framework.Integration;
@@ -74,11 +75,11 @@ namespace Tests.Framework
 			var client = this.Client;
 			return new LazyResponses(async () =>
 			{
-				var dict = new Dictionary<string, IResponse>();
-				dict.Add("fluent", fluent(RandomFluent, client, f => fluentBody(RandomFluent, f)));
-				dict.Add("fluentAsync", await fluentAsync(RandomFluentAsync, client, f => fluentBody(RandomFluentAsync, f)));
-				dict.Add("request", request(RandomInitializer, client, initializerBody(RandomInitializer)));
-				dict.Add("requestAsync", await requestAsync(RandomInitializerAsync, client, initializerBody(RandomInitializerAsync)));
+				var dict = new Dictionary<ClientCall, IResponse>();
+				dict.Add(ClientCall.Fluent, fluent(RandomFluent, client, f => fluentBody(RandomFluent, f)));
+				dict.Add(ClientCall.FluentAsync, await fluentAsync(RandomFluentAsync, client, f => fluentBody(RandomFluentAsync, f)));
+				dict.Add(ClientCall.Initializer, request(RandomInitializer, client, initializerBody(RandomInitializer)));
+				dict.Add(ClientCall.InitializerAsync, await requestAsync(RandomInitializerAsync, client, initializerBody(RandomInitializerAsync)));
 				return dict;
 			});
 		}
@@ -94,12 +95,15 @@ namespace Tests.Framework
 			//hack to make sure these are resolved in the right order, calling twice yields cached results so 
 			//should be fast
 			await this._createResponse;
+			this.WaitForYellow();
 			await this._createGetResponse;
 			await this._updateResponse;
+			this.WaitForYellow();
 			await this._updateGetResponse;
 			if (this.SupportsDeletes)
 			{
 				await this._deleteResponse;
+				this.WaitForYellow();
 				await this._deleteGetResponse;
 			}
 
@@ -119,6 +123,11 @@ namespace Tests.Framework
 					throw new Exception($"asserting over the response from: {kv.Key} failed: {ex.Message}", ex);
 				}
 			}
+		}
+
+		protected void WaitForYellow()
+		{
+			this.Client.ClusterHealth(g => g.WaitForStatus(WaitForStatus.Yellow));
 		}
 
 		protected async Task AssertOnCreate(Action<TCreateResponse> assert) => await this.AssertOnAllResponses(this._createResponse, assert);

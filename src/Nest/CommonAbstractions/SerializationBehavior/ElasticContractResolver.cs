@@ -30,7 +30,11 @@ namespace Nest.Resolvers
 
 			// this will only be called once and then cached
 
-			if (typeof(IDictionary).IsAssignableFrom(objectType))
+			if (typeof(IDictionary).IsAssignableFrom(objectType)  
+				&& !typeof(IMappings).IsAssignableFrom(objectType)
+				&& !typeof(IProperties).IsAssignableFrom(objectType)
+				&& !typeof(IDynamicIndexSettings).IsAssignableFrom(objectType)
+				)
 				contract.Converter = new VerbatimDictionaryKeysJsonConverter();
 
 			else if (objectType == typeof(IAggregation)) contract.Converter = new AggregationJsonConverter();
@@ -120,6 +124,8 @@ namespace Nest.Resolvers
 
 
 			defaultProperties = PropertiesOf<IClusterRerouteCommand>(type, memberSerialization, defaultProperties, lookup);
+			defaultProperties = PropertiesOf<IMultiTermVectorOperation>(type, memberSerialization, defaultProperties, lookup);
+			defaultProperties = PropertiesOf<IRepository>(type, memberSerialization, defaultProperties, lookup);
 
 			defaultProperties = PropertiesOf<INestSerializable>(type, memberSerialization, defaultProperties, lookup);
 
